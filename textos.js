@@ -104,7 +104,10 @@ window.TEXTOS = {
     "equipo.colaboradores": { en: "Collaborators", qom: "" },
     "equipo.hablantes": { en: "Speakers and translators", qom: "" },
     "equipo.instituciones": { en: "Institutions", qom: "" },
-    "rol.aleksei": { en: "Corpus building and translator", qom: "" },
+    "rol.aleksei": {
+        en: "Building the computational corpus, research, model training and translator development",
+        qom: ""
+    },
     "rol.macarena": { en: "Corpus building and translator evaluation", qom: "" },
     "rol.pablo": { en: "Corpus building and tool development", qom: "" },
     "rol.victoria": { en: "Anthropological advice", qom: "" },
