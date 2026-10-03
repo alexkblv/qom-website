@@ -3,228 +3,600 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title data-i18n="page_title">QomL’actaqa | Qom–Spanish corpus and tools</title>
-    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title data-t="pagina.titulo">Tecnologías de Lenguaje para Qom: QomL’aqtaqa, QomSpeech y traductor</title>
+    <meta name="description"
+        content="Recursos y herramientas para la lengua qom: el corpus paralelo QomL’aqtaqa, el corpus de habla QomSpeech y un traductor qom–español en línea.">
+    <meta name="theme-color" content="#f7f3ec">
+
+    <!-- Vista previa al compartir el enlace (WhatsApp, redes). Si cambia el dominio, actualizar estas dos URL. -->
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="es_AR">
+    <meta property="og:title" content="La lengua qom en el mundo digital">
+    <meta property="og:description"
+        content="Corpus de texto y de habla, y un traductor qom–español en línea. Universidad de Buenos Aires y comunidad qom de Derqui.">
+    <meta property="og:url" content="https://vcotik.github.io/qom-webiste/">
+    <meta property="og:image" content="https://vcotik.github.io/qom-webiste/assets/og.jpg">
+
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:wght@700&display=swap"
-        rel="stylesheet">
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400;0,500;1,400;1,500&family=Archivo:wdth,wght@100..125,400..800&display=swap">
+    <link rel="stylesheet" href="style.css">
+
+    <script src="config.js" defer></script>
+    <script src="textos.js" defer></script>
+    <script src="script.js" defer></script>
 </head>
 
 <body>
-    <div class="site-wrapper">
-        <header>
-            <nav class="container">
-                <div class="logo">Qom<span>L'actaqa</span></div>
-                <ul class="nav-links">
-                    <li><a href="#inicio" data-i18n="nav_home">Inicio</a></li>
-                    <li><a href="#descripcion" data-i18n="nav_description">Descripción</a></li>
-                    <li><a href="#traductor" data-i18n="nav_translator">Traductor</a></li>
-                    <li><a href="#miembros" data-i18n="nav_members">Miembros</a></li>
-                    <li><a href="#agradecimientos" data-i18n="nav_acknowledgements">Agradecimientos</a></li>
+    <a class="saltar" href="#contenido" data-t="saltar">Saltar al contenido</a>
+
+    <!-- Aparece solo mientras queden recuadros rojos (contenido pendiente). Lo arma script.js. -->
+    <div class="borrador" id="borrador" hidden></div>
+
+    <header class="cabecera">
+        <div class="cabecera-interior">
+            <a class="marca" href="#inicio">
+                <svg class="marca-glifo" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+                    <rect x="2.5" y="2.5" width="27" height="27" fill="none" stroke="var(--azul)" stroke-width="5" />
+                    <rect x="9.5" y="9.5" width="13" height="13" fill="none" stroke="var(--verde)" stroke-width="4" />
+                    <rect x="14" y="13" width="4" height="9.5" fill="var(--amarillo)" />
+                </svg>
+                <span class="marca-texto" data-t="marca">Tecnologías de Lenguaje para Qom</span>
+            </a>
+
+            <nav class="navegacion" aria-label="Secciones" data-t-attr="aria-label:nav.etiqueta">
+                <button class="menu-boton" type="button" aria-expanded="false" aria-controls="menu"
+                    aria-label="Menú" data-t-attr="aria-label:nav.menu">
+                    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                        <path d="M3 6h18M3 12h18M3 18h18" fill="none" stroke="currentColor" stroke-width="2" />
+                    </svg>
+                    <span data-t="nav.menu">Menú</span>
+                </button>
+                <ul class="menu" id="menu">
+                    <li><a href="#comunidad" data-t="nav.comunidad">Comunidad</a></li>
+                    <li><a href="#recursos" data-t="nav.recursos">Recursos</a></li>
+                    <li><a href="#traductor" data-t="nav.traductor">Traductor</a></li>
+                    <li><a href="#equipo" data-t="nav.equipo">Equipo</a></li>
+                    <li><a href="#citar" data-t="nav.citar">Citar</a></li>
                 </ul>
-                <div class="header-actions">
-                    <div class="lang-switch">
-                        <button id="lang-es" class="lang-btn active">ES</button>
-                        <button id="lang-en" class="lang-btn">EN</button>
-                        <button class="lang-btn disabled" title="Próximamente">QOM</button>
-                    </div>
-                    <div class="menu-toggle">
-                        <i data-lucide="menu"></i>
-                    </div>
-                </div>
             </nav>
-        </header>
 
-        <main>
-            <section id="inicio" class="hero">
-                <div class="container">
-                    <div class="hero-content">
-                        <h1 data-i18n="hero_title">QomL’actaqa and QomSpeech:</h1>
-                        <p data-i18n="hero_subtitle">A Qom–Spanish corpus and tools for NLP and language technology</p>
-                        <div class="hero-actions">
-                            <a href="#traductor" class="btn btn-primary-light" data-i18n="hero_btn_translator">Try the
-                                Translator</a>
-                            <a href="#" class="btn btn-outline-light" data-i18n="hero_btn_dataset">Download Dataset</a>
-                            <a href="#" class="btn btn-outline-light" data-i18n="hero_btn_code">Code</a>
-                            <a href="#" class="btn btn-outline-light" data-i18n="hero_btn_paper">Paper</a>
-                        </div>
+            <div class="idiomas" role="group" aria-label="Idioma" data-t-attr="aria-label:idiomas.etiqueta">
+                <button type="button" data-idioma="es" aria-pressed="true" lang="es" aria-label="Español">
+                    <span class="idioma-largo">Español</span><span class="idioma-corto" aria-hidden="true">ES</span>
+                </button>
+                <button type="button" data-idioma="en" aria-pressed="false" lang="en" aria-label="English">
+                    <span class="idioma-largo">English</span><span class="idioma-corto" aria-hidden="true">EN</span>
+                </button>
+                <button type="button" data-idioma="qom" aria-pressed="false" lang="tob" aria-label="Qom">
+                    <span class="idioma-largo">Qom</span><span class="idioma-corto" aria-hidden="true">QOM</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Aparece cuando se elige qom y todavía faltan textos traducidos. -->
+    <p class="aviso-idioma" id="aviso-idioma" role="status" hidden></p>
+
+    <main id="contenido">
+
+        <!-- ===================== PORTADA ===================== -->
+        <section class="portada" id="inicio" aria-labelledby="portada-titulo">
+            <div class="portada-interior">
+                <div class="portada-texto">
+                    <p class="portada-recursos"><span lang="tob">QomL’aqtaqa</span> <span data-t="portada.y">y</span>
+                        QomSpeech</p>
+                    <h1 id="portada-titulo" data-t="portada.titulo">La lengua qom en el mundo digital</h1>
+                    <p class="portada-bajada" data-t="portada.bajada">Recursos y herramientas para trabajar con texto
+                        y voz</p>
+
+                    <div class="acciones">
+                        <a class="boton boton-principal"
+                            href="https://qom-translator-810093536873.us-central1.run.app"
+                            data-evento="open_translator">
+                            <span data-t="accion.traductor">Probar el traductor</span>
+                            <svg class="flecha" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                                <path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" />
+                            </svg>
+                        </a>
+                        <!-- PENDIENTE: cuando exista el registro en Zenodo, cambiar href="#texto" por su URL,
+                             agregar data-evento="download_dataset" y quitar la clase "pendiente" y los atributos data-pendiente. -->
+                        <a class="boton pendiente pendiente-boton" href="#texto"
+                            data-pendiente="Botón «Descargar los datos»: enlazar al registro de Zenodo"
+                            data-quien="AK, VC">
+                            <span data-t="accion.datos">Descargar los datos</span>
+                        </a>
+                        <a class="boton" href="https://github.com/alexkblv/qom-mt" data-evento="open_code">
+                            <span data-t="accion.codigo">Código</span>
+                        </a>
+                        <a class="boton" href="https://aclanthology.org/2026.americasnlp-6.17/"
+                            data-evento="open_paper">
+                            <span data-t="accion.articulo">Artículo</span>
+                        </a>
                     </div>
                 </div>
-            </section>
 
-            <section id="descripcion" class="section">
-                <div class="container">
-                    <h2 class="section-title" data-i18n="description_title">Descripción</h2>
-                    <div class="description-text">
-                        <p data-i18n="description_p1">We release two complementary resources for the Qom language
-                            covering both text and speech, supporting research in natural language processing for
-                            low-resource and Indigenous languages.</p>
-                        <p data-i18n="description_p2">QomL’actaqa is a Qom–Spanish parallel corpus for machine
-                            translation and other text-based tasks, while QomSpeech is a speech corpus of audio–text
-                            pairs in Qom for automatic speech recognition (ASR) and related technologies.</p>
-                        <p data-i18n="description_p3">Both datasets are accompanied by tools and models to facilitate
-                            their use.</p>
-                    </div>
+                <svg class="motivo" viewBox="0 0 640 760" preserveAspectRatio="xMaxYMid slice" aria-hidden="true"
+                    focusable="false">
+                    <g class="motivo-grupo motivo-arriba">
+                        <path class="trazo trazo-azul" pathLength="1" d="M216 -60V336H720" />
+                        <path class="trazo trazo-verde" pathLength="1" d="M336 -60V216H720" />
+                        <path class="trazo trazo-amarillo" pathLength="1" d="M488 -60V150" />
+                    </g>
+                    <g class="motivo-grupo motivo-abajo">
+                        <path class="trazo trazo-azul" pathLength="1" d="M64 820V456H536V820" />
+                        <path class="trazo trazo-verde" pathLength="1" d="M176 820V568H424V820" />
+                        <path class="trazo trazo-amarillo" pathLength="1" d="M300 820V676" />
+                    </g>
+                </svg>
+            </div>
+
+            <!-- En teléfonos: el arco del motivo, cortado por el borde inferior. -->
+            <svg class="motivo-movil" viewBox="0 420 640 340" aria-hidden="true" focusable="false">
+                <g class="motivo-abajo">
+                    <path class="trazo trazo-azul" pathLength="1" d="M64 820V456H536V820" />
+                    <path class="trazo trazo-verde" pathLength="1" d="M176 820V568H424V820" />
+                    <path class="trazo trazo-amarillo" pathLength="1" d="M300 820V676" />
+                </g>
+            </svg>
+        </section>
+
+        <!-- ===================== PROYECTO Y COMUNIDAD ===================== -->
+        <section class="seccion proyecto" id="proyecto" aria-labelledby="proyecto-titulo">
+            <div class="interior proyecto-interior">
+                <h2 class="visualmente-oculto" id="proyecto-titulo" data-t="proyecto.titulo">El proyecto</h2>
+                <p class="proyecto-presentacion" data-t="proyecto.texto">Presentamos recursos y herramientas digitales
+                    creados para la lengua qom, diseñados para trabajar tanto con textos escritos como con grabaciones
+                    de voz. Estos recursos se complementan entre sí y buscan potenciar la presencia de las lenguas
+                    indígenas en el mundo digital, apoyando el desarrollo de tecnologías lingüísticas más inclusivas.</p>
+
+                <div class="proyecto-mas">
+                    <span class="boton boton-chico pendiente pendiente-boton"
+                        data-pendiente="Botón «Ver más sobre la lengua qom»: decidir a dónde lleva"
+                        data-quien="PC, TT">
+                        <span data-t="proyecto.mas-lengua">Ver más sobre la lengua qom</span>
+                    </span>
+                    <span class="boton boton-chico pendiente pendiente-boton"
+                        data-pendiente="Botón «¿Cómo ayuda la tecnología a los idiomas?»: decidir a dónde lleva"
+                        data-quien="VC">
+                        <span data-t="proyecto.mas-tecnologia">¿Cómo ayuda la tecnología a los idiomas?</span>
+                    </span>
                 </div>
-            </section>
 
-            <section id="traductor" class="section section-alt">
-                <div class="container translator-demo">
-                    <h2 class="section-title" data-i18n="translator_title">Traductor en línea</h2>
-                    <p data-i18n="translator_text">We provide an online demo to explore Qom–Spanish translation using
-                        our models.</p>
-                    <div class="translator-actions">
-                        <a href="#" class="btn btn-primary" data-i18n="translator_btn">Open Translator</a>
-                    </div>
-                    <p class="note" data-i18n="translator_note">Note: This system is intended for research purposes and
-                        may produce errors.</p>
-                </div>
-            </section>
-
-            <section id="miembros" class="section">
-                <div class="container">
-                    <h2 class="section-title" data-i18n="members_title">Miembros</h2>
-
-                    <h3 class="members-subtitle" data-i18n="members_full_title">Miembros plenos</h3>
-                    <div class="members-list">
-                        <div class="member-item">
-                            <p class="member-info">
-                                <span class="member-name">Viviana Cotik</span>, <span
-                                    class="member-affiliation">Instituto de Investigación de Ciencias de la Computación
-                                    (ICC). UBA</span>
-                            </p>
-                            <p class="member-email-wrapper">
-                                <a href="mailto:vcotik@dc.uba.ar" class="member-email">vcotik@dc.uba.ar</a>
-                            </p>
-                        </div>
-
-                        <div class="member-item">
-                            <p class="member-info">
-                                <span class="member-name">Paola Cúneo</span>, <span class="member-affiliation">CONICET -
-                                    Universidad de Buenos Aires. Instituto de Lingüística</span>
-                            </p>
-                            <p class="member-email-wrapper">
-                                <a href="mailto:pcuneo@filo.uba.ar" class="member-email">pcuneo@gmail.com</a>
-                            </p>
-                        </div>
-                        <div class="member-item">
-                            <p class="member-info">
-                                <span class="member-name">Christian Cossio</span>, <span
-                                    class="member-affiliation">Departamento de Computación. Facultad de Ciencias Exactas
-                                    y Naturales. UBA</span>
-                            </p>
-                            <p class="member-email-wrapper">
-                                <a href="mailto:ccossio@dc.uba.ar" class="member-email">ccossio@dc.uba.ar</a>
-                            </p>
-                        </div>
-                        <div class="member-item">
-                            <p class="member-info">
-                                <span class="member-name">Temis Tacconi</span>, <span
-                                    class="member-affiliation">Instituto de
-                                    Lingüística. Facultad de Filosofía y Letras. UBA</span>
-                            </p>
-                            <p class="member-email-wrapper">
-                                <a href="mailto:tltacconi@filo.uba.ar" class="member-email">tltacconi@filo.uba.ar</a>
-                            </p>
-                        </div>
-                        <div class="member-item">
-                            <p class="member-info">
-                                <span class="member-name">Belu Ticona</span>, <span
-                                    class="member-affiliation">Departamento de Computación. Facultad de Ciencias Exactas
-                                    y Naturales. UBA</span>
-                            </p>
-                            <p class="member-email-wrapper">
-                                <a href="mailto:bticona@dc.uba.ar" class="member-email">bticona@dc.uba.ar</a>
-                            </p>
-                        </div>
-                    </div>
-
-                    <h3 class="members-subtitle" data-i18n="members_collaborators_title">Colaboradores</h3>
-                    <div class="members-list">
-                        <div class="member-item">
-                            <p class="member-info">
-                                <span class="member-name">Aleksei Korablev</span>, <span
-                                    class="member-affiliation">Minerva University</span>
-                            </p>
-                            <p class="member-role" data-i18n="role_aleksei">Construcción de corpus y de traductor</p>
-
-                        </div>
-                        <div class="member-item">
-                            <p class="member-info">
-                                <span class="member-name">Macarena Fernández Urquiza</span>, <span
-                                    class="member-affiliation">Facultad de Filosofía y Letras. UBA.</span>
-                            </p>
-                            <p class="member-role" data-i18n="role_maca">Construcción de corpus y evaluación de
-                                traductor</p>
-
-                        </div>
-                        <div class="member-item">
-                            <p class="member-info">
-                                <span class="member-name">Pablo Laciana</span>, <span
-                                    class="member-affiliation">Instituto de Investigación de Ciencias de la Computación
-                                    (ICC). UBA</span>
-                            </p>
-                            <p class="member-role" data-i18n="role_pablo">Construcción de corpus e implementación de
-                                herramientas</p>
-                        </div>
-                        <div class="member-item">
-                            <p class="member-info">
-                                <span class="member-name">Victoria Beiras del Carril</span>, <span
-                                    class="member-affiliation">Instituto de Lingüística. Facultad de Filosofía y Letras.
-                                    UBA</span>
-                            </p>
-                            <p class="member-role" data-i18n="role_victoria">Asesoramiento antropológico</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section id="agradecimientos" class="section section-alt">
-                <div class="container">
-                    <h2 class="section-title" data-i18n="acknowledgements_title">Agradecimientos</h2>
-                    <div class="acknowledgements-content">
-                        <p data-i18n="acknowledgements_text1">This work was partially supported by [Funding Agency /
-                            Project Name / Grant No.].</p>
-                        <p data-i18n="acknowledgements_text2">The datasets … were created with support from Lacuna Fund,
-                            Google.org, Instituto de Lingüística (...), ICC (CONICET-UBA).</p>
-                        <div class="funding-logos">
-                            <img src="assets/Lacuna-Fund.png" alt="Lacuna Fund" class="partner-logo">
-                            <img src="assets/Google_2015_logo.svg" alt="Google.org" class="partner-logo">
-                            <img src="assets/logo-ICC.png" alt="ICC (CONICET-UBA)" class="partner-logo">
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </main>
-
-        <footer>
-            <div class="container">
-                <div class="footer-content">
-                    <div class="footer-info">
-                        <p><strong data-i18n="footer_contact">Contact:</strong> <a
-                                href="mailto:lacunaqom@googlegroups.com">lacunaqom@googlegroups.com</a></p>
-
-                        <!--
-                        <p><strong data-i18n="footer_affiliation">Affiliation:</strong> <span
-                                data-i18n="footer_affiliation_val">…</span></p>
-                        <p><strong data-i18n="footer_license">License:</strong> <span
-                                data-i18n="footer_license_val">…</span></p>
-                        -->
-                    </div>
-                    <div class="footer-disclaimer">
-                        <p data-i18n="footer_disclaimer">The views expressed herein do not necessarily represent those
-                            of Lacuna Fund, its Steering Committee, its funders, or Meridian Institute</p>
+                <div class="comunidad" id="comunidad">
+                    <h3 data-t="comunidad.titulo">Con la comunidad qom de Derqui</h3>
+                    <div class="pendiente" data-pendiente="Sección Comunidad: texto sobre la relación con Derqui"
+                        data-quien="PC, VC">
+                        <p class="pendiente-etiqueta">Pendiente · PC, VC</p>
+                        <p>Contar la relación con la comunidad de Derqui, que viene de antes de este proyecto: los
+                            talleres, el trabajo previo y cómo participan hablantes y traductores. También puede ir acá
+                            el libro como resultado del proyecto. Dos o tres párrafos cortos, para público general.</p>
                     </div>
                 </div>
             </div>
-        </footer>
-    </div>
+        </section>
 
-    <script src="script.js"></script>
+        <!-- ===================== RECURSOS ===================== -->
+        <section class="seccion recursos" id="recursos" aria-labelledby="recursos-titulo">
+            <div class="interior">
+                <h2 id="recursos-titulo" data-t="recursos.titulo">Recursos</h2>
+
+                <article class="recurso" id="texto" aria-labelledby="texto-nombre">
+                    <div class="recurso-cabeza">
+                        <p class="recurso-tipo" data-t="texto.tipo">Corpus de texto</p>
+                        <h3 class="recurso-nombre recurso-nombre-qom" id="texto-nombre" lang="tob">QomL’aqtaqa</h3>
+                    </div>
+                    <div class="recurso-cuerpo">
+                        <p data-t="texto.descripcion">Es un corpus paralelo: una colección de textos que expresan el
+                            mismo contenido en dos idiomas, qom y español. Este recurso puede utilizarse para contribuir
+                            al desarrollo de sistemas de traducción automática y otras tecnologías del lenguaje, así como
+                            a la investigación lingüística, la enseñanza y la documentación de ambas lenguas.</p>
+                        <p class="recurso-cifras" data-t="texto.cifras"><strong>33.392</strong> pares de segmentos
+                            qom–español de <strong>7</strong> fuentes, publicados en AmericasNLP 2026.</p>
+                        <ul class="fuentes" aria-label="Fuentes del corpus" data-t-attr="aria-label:texto.fuentes">
+                            <li>Arte verbal qom</li>
+                            <li>Educación Sanitaria Intercultural</li>
+                            <li>Materiales del Taller de Lengua y Cultura Toba</li>
+                            <li>Las Aventuras de Copaic</li>
+                            <li>Declaración Universal de los Derechos Humanos</li>
+                            <li>El Principito</li>
+                            <li>La Biblia</li>
+                        </ul>
+                        <ul class="enlaces">
+                            <li>
+                                <span class="pendiente pendiente-en-linea"
+                                    data-pendiente="Enlace a los datos de QomL’aqtaqa en Zenodo (y su DOI)"
+                                    data-quien="AK, VC"><span data-t="texto.datos">Datos en Zenodo</span>
+                                    <span class="pendiente-etiqueta">pendiente</span></span>
+                            </li>
+                            <li><a href="https://aclanthology.org/2026.americasnlp-6.17/"
+                                    data-evento="open_paper"><span data-t="texto.articulo">Artículo en ACL
+                                        Anthology</span></a></li>
+                            <li><a href="https://github.com/alexkblv/qom-mt" data-evento="open_code"><span
+                                        data-t="texto.codigo">Código en GitHub</span></a></li>
+                        </ul>
+                    </div>
+                </article>
+
+                <article class="recurso" id="voz" aria-labelledby="voz-nombre">
+                    <div class="recurso-cabeza">
+                        <p class="recurso-tipo" data-t="voz.tipo">Corpus de habla</p>
+                        <h3 class="recurso-nombre" id="voz-nombre">QomSpeech</h3>
+                        <p class="estado"><span class="estado-punto" aria-hidden="true"></span><span
+                                data-t="voz.estado">En preparación</span></p>
+                    </div>
+                    <div class="recurso-cuerpo">
+                        <p data-t="voz.descripcion">Es un corpus de habla: una colección de grabaciones de voz en qom,
+                            donde cada audio tiene su correspondiente transcripción escrita. Este recurso puede
+                            utilizarse para desarrollar tecnologías capaces de reconocer el habla qom y transformarla en
+                            texto automáticamente (reconocimiento automático del habla), así como para la investigación
+                            lingüística y el estudio de distintos aspectos del lenguaje hablado. Por ejemplo, este tipo
+                            de tecnología podría permitir, en el futuro, que una persona hable en qom y que sus palabras
+                            aparezcan escritas automáticamente en una computadora o un teléfono.</p>
+                        <div class="pendiente" data-pendiente="QomSpeech: cifras (horas, hablantes) y enlace a Zenodo"
+                            data-quien="BT, VC">
+                            <p class="pendiente-etiqueta">Pendiente · BT, VC</p>
+                            <p>Cuando se publique: cuántas horas y cuántos hablantes, en qué formato, y el enlace al
+                                registro de Zenodo.</p>
+                        </div>
+                    </div>
+                </article>
+
+                <div class="mas-recursos">
+                    <div class="mas-recurso">
+                        <h3 data-t="codigo.titulo">Código</h3>
+                        <p data-t="codigo.texto">El código para construir el corpus, entrenar los modelos y evaluarlos
+                            es abierto.</p>
+                        <a class="enlace-flecha" href="https://github.com/alexkblv/qom-mt" data-evento="open_code">
+                            github.com/alexkblv/qom-mt
+                        </a>
+                    </div>
+                    <div class="mas-recurso">
+                        <h3 data-t="modelos.titulo">Modelos de traducción</h3>
+                        <p data-t="modelos.texto">Los modelos están en Hugging Face y por ahora son privados. Se pueden
+                            probar con el traductor en línea.</p>
+                        <span class="pendiente pendiente-en-linea"
+                            data-pendiente="Modelos: ¿se publican en Hugging Face? Si sí, poner el enlace"
+                            data-quien="VC, AK">Hugging Face <span class="pendiente-etiqueta">pendiente</span></span>
+                    </div>
+                </div>
+
+                <div class="publicaciones" id="publicaciones">
+                    <h3 data-t="publicaciones.titulo">Publicaciones</h3>
+                    <ol class="referencias">
+                        <li class="referencia">
+                            <p>Cotik, V., Korablev, A., Cúneo, P. y Laciana, P. (2026).
+                                <cite><span lang="tob">QomL’aqtaqa</span>: A Qom–Spanish Parallel Corpus for Natural
+                                    Language Processing with Machine Translation Evaluation.</cite>
+                                <span data-t="publicaciones.en">En</span> Proceedings of the Sixth Workshop on NLP for
+                                Indigenous Languages of the Americas (AmericasNLP), 186–202. Association for
+                                Computational Linguistics.
+                            </p>
+                            <p class="referencia-enlaces">
+                                <a href="https://aclanthology.org/2026.americasnlp-6.17/" data-evento="open_paper"><span
+                                        data-t="publicaciones.ver">Ver el artículo</span></a>
+                                <a href="https://aclanthology.org/2026.americasnlp-6.17.pdf" data-evento="open_paper">PDF</a>
+                                <a href="https://doi.org/10.18653/v1/2026.americasnlp-6.17">DOI</a>
+                            </p>
+                        </li>
+                        <li class="referencia">
+                            <div class="pendiente"
+                                data-pendiente="Publicaciones: otras presentaciones (pósters de la Escuela de PLN, resumen para JAIIO)"
+                                data-quien="VC">
+                                <p class="pendiente-etiqueta">Pendiente · VC</p>
+                                <p>Otras publicaciones y presentaciones: los pósters de la Escuela de PLN y el resumen
+                                    para las JAIIO, con su referencia y enlace.</p>
+                            </div>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================== TRADUCTOR ===================== -->
+        <section class="seccion traductor" id="traductor" aria-labelledby="traductor-titulo">
+            <div class="interior traductor-interior">
+                <div class="traductor-texto">
+                    <h2 id="traductor-titulo" data-t="traductor.titulo">Traductor en línea</h2>
+                    <p class="traductor-bajada" data-t="traductor.texto">Probá nuestra herramienta interactiva y
+                        descubrí cómo la tecnología traduce textos de forma automática entre el qom y el español
+                        utilizando los modelos de este proyecto.</p>
+                    <a class="boton boton-amarillo" href="https://qom-translator-810093536873.us-central1.run.app"
+                        data-evento="open_translator">
+                        <span data-t="traductor.boton">Abrir el traductor</span>
+                        <svg class="flecha" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                            <path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" />
+                        </svg>
+                    </a>
+                    <ul class="traductor-avisos">
+                        <li data-t="traductor.aviso-prueba">Es una versión de prueba: las traducciones pueden tener
+                            errores.</li>
+                        <li data-t="traductor.aviso-espera">Si nadie lo usó en un rato, la primera traducción puede
+                            tardar uno o dos minutos. Después tarda unos segundos.</li>
+                    </ul>
+                </div>
+
+                <div class="ejemplos">
+                    <h3 data-t="ejemplos.titulo">Ejemplos</h3>
+                    <div class="pendiente" data-pendiente="Ejemplos: 2 o 3 pares qom–español para mostrar"
+                        data-quien="PC">
+                        <p class="pendiente-etiqueta">Pendiente · PC</p>
+                        <p>Elegir 2 o 3 pares qom–español que se puedan mostrar. Cada uno lleva la frase en qom, su
+                            traducción y de qué fuente sale. Se ven así:</p>
+                        <figure class="par">
+                            <p class="par-qom" lang="tob">[frase en qom]</p>
+                            <p class="par-es">[traducción al español]</p>
+                            <figcaption>[fuente]</figcaption>
+                        </figure>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================== USO ===================== -->
+        <section class="seccion uso" id="uso" aria-labelledby="uso-titulo">
+            <div class="interior uso-interior">
+                <div>
+                    <h2 id="uso-titulo" data-t="uso.titulo">Uso</h2>
+                    <p data-t="uso.texto">Medimos las visitas a este sitio y los clics en los recursos principales,
+                        sin cookies ni datos personales. Zenodo publica las descargas de cada conjunto de datos.</p>
+                </div>
+                <dl class="cifras">
+                    <div class="cifra">
+                        <dt data-t="uso.descargas">Descargas en Zenodo</dt>
+                        <dd data-cifra="descargas"><span class="cifra-vacia">Todavía sin datos</span></dd>
+                    </div>
+                    <div class="cifra">
+                        <dt data-t="uso.vistas">Vistas en Zenodo</dt>
+                        <dd data-cifra="vistas"><span class="cifra-vacia">Todavía sin datos</span></dd>
+                    </div>
+                    <div class="cifra">
+                        <dt data-t="uso.visitas">Visitas a este sitio</dt>
+                        <dd data-cifra="panel"><span class="cifra-vacia">Todavía sin datos</span></dd>
+                    </div>
+                </dl>
+                <p class="cifras-estado" id="cifras-estado" aria-live="polite"></p>
+            </div>
+        </section>
+
+        <!-- ===================== EQUIPO ===================== -->
+        <section class="seccion equipo" id="equipo" aria-labelledby="equipo-titulo">
+            <div class="interior">
+                <h2 id="equipo-titulo" data-t="equipo.titulo">Equipo</h2>
+
+                <div class="equipo-columnas">
+                    <div class="equipo-grupo">
+                        <h3 data-t="equipo.miembros">Miembros plenos</h3>
+                        <ul class="personas">
+                            <li class="persona">
+                                <p class="persona-nombre">Viviana Cotik</p>
+                                <p class="persona-lugar">Instituto de Investigación de Ciencias de la Computación (ICC).
+                                    UBA</p>
+                                <a class="correo" data-c="cmEuYWJ1LmNkQGtpdG9jdg==">vcotik [arroba] dc.uba.ar</a>
+                            </li>
+                            <li class="persona">
+                                <p class="persona-nombre">Paola Cúneo</p>
+                                <p class="persona-lugar">CONICET, Universidad de Buenos Aires. Instituto de Lingüística</p>
+                                <a class="correo" data-c="cmEuYWJ1Lm9saWZAb2VudWNw">pcuneo [arroba] filo.uba.ar</a>
+                            </li>
+                            <li class="persona">
+                                <p class="persona-nombre">Christian Cossio</p>
+                                <p class="persona-lugar">Departamento de Computación. Facultad de Ciencias Exactas y
+                                    Naturales. UBA</p>
+                                <a class="correo" data-c="cmEuYWJ1LmNkQG9pc3NvY2M=">ccossio [arroba] dc.uba.ar</a>
+                            </li>
+                            <li class="persona">
+                                <p class="persona-nombre">Temis Tacconi</p>
+                                <p class="persona-lugar">Instituto de Lingüística. Facultad de Filosofía y Letras. UBA</p>
+                                <a class="correo" data-c="cmEuYWJ1Lm9saWZAaW5vY2NhdGx0">tltacconi [arroba] filo.uba.ar</a>
+                            </li>
+                            <li class="persona">
+                                <p class="persona-nombre">Belu Ticona</p>
+                                <p class="persona-lugar">Departamento de Computación. Facultad de Ciencias Exactas y
+                                    Naturales. UBA</p>
+                                <a class="correo" data-c="cmEuYWJ1LmNkQGFub2NpdGI=">bticona [arroba] dc.uba.ar</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="equipo-grupo">
+                        <h3 data-t="equipo.colaboradores">Colaboradores</h3>
+                        <ul class="personas">
+                            <li class="persona">
+                                <p class="persona-nombre">Aleksei Korablev</p>
+                                <p class="persona-lugar">Minerva University</p>
+                                <p class="persona-rol" data-t="rol.aleksei">Construcción de corpus y de traductor</p>
+                            </li>
+                            <li class="persona">
+                                <p class="persona-nombre">Macarena Fernández Urquiza</p>
+                                <p class="persona-lugar">Facultad de Filosofía y Letras. UBA</p>
+                                <p class="persona-rol" data-t="rol.macarena">Construcción de corpus y evaluación de
+                                    traductor</p>
+                            </li>
+                            <li class="persona">
+                                <p class="persona-nombre">Pablo Laciana</p>
+                                <p class="persona-lugar">Instituto de Investigación de Ciencias de la Computación (ICC).
+                                    UBA</p>
+                                <p class="persona-rol" data-t="rol.pablo">Construcción de corpus e implementación de
+                                    herramientas</p>
+                            </li>
+                            <li class="persona">
+                                <p class="persona-nombre">Victoria Beiras del Carril</p>
+                                <p class="persona-lugar">Instituto de Lingüística. Facultad de Filosofía y Letras. UBA</p>
+                                <p class="persona-rol" data-t="rol.victoria">Asesoramiento antropológico</p>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="equipo-grupo">
+                        <h3 data-t="equipo.hablantes">Hablantes y traductores</h3>
+                        <div class="pendiente" data-pendiente="Equipo: hablantes y traductores (quiénes y con qué consentimiento)"
+                            data-quien="PC, VC">
+                            <p class="pendiente-etiqueta">Pendiente · PC, VC</p>
+                            <p>Decidir a quiénes nombrar (hablantes que grabaron, traductores) y confirmar que cada
+                                persona quiere figurar y cómo.</p>
+                        </div>
+                    </div>
+
+                    <div class="equipo-grupo">
+                        <h3 data-t="equipo.instituciones">Instituciones</h3>
+                        <ul class="personas">
+                            <li class="persona">
+                                <p class="persona-nombre">ICC</p>
+                                <p class="persona-lugar" data-t="inst.icc">Instituto de Investigación de Ciencias de la
+                                    Computación (UBA-CONICET)</p>
+                            </li>
+                            <li class="persona">
+                                <p class="persona-nombre">IL</p>
+                                <p class="persona-lugar" data-t="inst.il">Instituto de Lingüística, Facultad de
+                                    Filosofía y Letras (UBA)</p>
+                            </li>
+                            <li class="persona">
+                                <p class="persona-nombre">CONICET</p>
+                                <p class="persona-lugar" data-t="inst.conicet">Consejo Nacional de Investigaciones
+                                    Científicas y Técnicas</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================== CITAR ===================== -->
+        <section class="seccion citar" id="citar" aria-labelledby="citar-titulo">
+            <div class="interior citar-interior">
+                <div class="citar-texto">
+                    <h2 id="citar-titulo" data-t="citar.titulo">Cómo citar</h2>
+                    <p data-t="citar.texto">Si usás estos recursos en tu trabajo, citá el artículo.</p>
+                    <dl class="dois">
+                        <div>
+                            <dt data-t="citar.doi-articulo">DOI del artículo</dt>
+                            <dd><a href="https://doi.org/10.18653/v1/2026.americasnlp-6.17">10.18653/v1/2026.americasnlp-6.17</a></dd>
+                        </div>
+                        <div>
+                            <dt data-t="citar.doi-datos">DOI de los datos</dt>
+                            <dd><span class="pendiente pendiente-en-linea"
+                                    data-pendiente="DOI de los datos (Zenodo), para citar el corpus"
+                                    data-quien="AK, VC">Zenodo <span class="pendiente-etiqueta">pendiente</span></span>
+                            </dd>
+                        </div>
+                    </dl>
+                </div>
+                <div class="bibtex">
+                    <div class="bibtex-barra">
+                        <span>BibTeX</span>
+                        <button class="copiar" type="button" data-copiar="bibtex-codigo">
+                            <span data-t="citar.copiar">Copiar</span>
+                        </button>
+                    </div>
+                    <pre id="bibtex-codigo"><code>@inproceedings{cotik-etal-2026-qomlaqtaqa,
+    title = "{Q}om{L}{'}aqtaqa: A {Q}om{--}{S}panish Parallel Corpus for Natural Language Processing with Machine Translation Evaluation",
+    author = "Cotik, Viviana  and
+      Korablev, Aleksei  and
+      C{\'u}neo, Paola  and
+      Laciana, Pablo",
+    booktitle = "Proceedings of the Sixth Workshop on {NLP} for Indigenous Languages of the {A}mericas ({A}mericas{NLP})",
+    month = jul,
+    year = "2026",
+    address = "San Diego, California, USA",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2026.americasnlp-6.17/",
+    doi = "10.18653/v1/2026.americasnlp-6.17",
+    pages = "186--202"
+}</code></pre>
+                    <p class="copiado" aria-live="polite"></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================== AGRADECIMIENTOS ===================== -->
+        <section class="seccion agradecimientos" id="agradecimientos" aria-labelledby="agradecimientos-titulo">
+            <div class="interior">
+                <h2 id="agradecimientos-titulo" data-t="agradecimientos.titulo">Agradecimientos</h2>
+                <div class="agradecimientos-texto">
+                    <p data-t="agradecimientos.trabajo">Este trabajo fue apoyado por Lacuna Fund, el Instituto de
+                        Lingüística (UBA), el ICC (CONICET-UBA) y el Departamento de Computación (UBA).</p>
+                    <p data-t="agradecimientos.datos">Los conjuntos de datos se crearon con el apoyo de Lacuna Fund,
+                        Google.org, el Instituto de Lingüística (UBA) y el ICC (CONICET-UBA).</p>
+                </div>
+                <ul class="logos">
+                    <li>
+                        <span class="logo-placa"><img src="assets/Lacuna-Fund.png" alt="" width="484" height="104"
+                                loading="lazy"></span>
+                        <span>Lacuna Fund</span>
+                    </li>
+                    <li>
+                        <span class="logo-placa"><img src="assets/Google_2015_logo.svg" alt="" width="272" height="92"
+                                loading="lazy"></span>
+                        <span>Google.org</span>
+                    </li>
+                    <li>
+                        <span class="logo-placa"><img src="assets/logo-ICC.png" alt="" width="358" height="199"
+                                loading="lazy"></span>
+                        <span>ICC (UBA-CONICET)</span>
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <!-- ===================== PIE ===================== -->
+    <footer class="pie">
+        <div class="interior pie-interior">
+            <div class="pie-marca">
+                <svg class="marca-glifo" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+                    <rect x="2.5" y="2.5" width="27" height="27" fill="none" stroke="var(--papel)" stroke-width="5" />
+                    <rect x="9.5" y="9.5" width="13" height="13" fill="none" stroke="var(--verde)" stroke-width="4" />
+                    <rect x="14" y="13" width="4" height="9.5" fill="var(--amarillo)" />
+                </svg>
+                <p data-t="marca">Tecnologías de Lenguaje para Qom</p>
+            </div>
+            <dl class="pie-datos">
+                <div>
+                    <dt data-t="pie.contacto">Contacto</dt>
+                    <dd><a class="correo" data-c="bW9jLnNwdW9yZ2VsZ29vZ0Btb3FhbnVjYWw=">lacunaqom [arroba]
+                            googlegroups.com</a></dd>
+                </div>
+                <div>
+                    <dt data-t="pie.sitio">Este sitio</dt>
+                    <dd><a href="https://github.com/vcotik/qom-webiste" data-t="pie.sitio-enlace">Código y cómo
+                            actualizarlo</a></dd>
+                </div>
+                <div>
+                    <dt data-t="pie.licencia">Licencia</dt>
+                    <dd><span class="pendiente pendiente-en-linea"
+                            data-pendiente="Licencia de los datos y de los textos del sitio" data-quien="VC, PC"><span
+                                data-t="pie.licencia-pendiente">Por definir</span> <span
+                                class="pendiente-etiqueta">pendiente</span></span></dd>
+                </div>
+            </dl>
+            <p class="pie-descargo" data-t="pie.descargo">Las opiniones expresadas en este sitio no representan
+                necesariamente las de Lacuna Fund, su Comité Directivo, sus financiadores o el Meridian Institute.</p>
+        </div>
+    </footer>
+
+    <!-- Pendientes que no tienen un lugar en la página. Aparecen en la lista del aviso de borrador. -->
+    <ul class="pendientes-generales" hidden>
+        <li class="pendiente" data-pendiente="Nombre del sitio: confirmar «Tecnologías de Lenguaje para Qom»"
+            data-quien="VC"></li>
+        <li class="pendiente"
+            data-pendiente="Estadísticas del sitio: abrir la cuenta (Plausible u otra) y completar config.js"
+            data-quien="VC, AK"></li>
+        <li class="pendiente" data-pendiente="Dominio propio (lenguaqom.com.ar): configurarlo en GitHub Pages"
+            data-quien="PC"></li>
+        <li class="pendiente"
+            data-pendiente="Correos y afiliaciones: el correo de Paola (gmail o filo.uba.ar) y la afiliación de Belu (UBA o George Mason)"
+            data-quien="PC, BT"></li>
+        <li class="pendiente" data-pendiente="Versión en inglés: revisar la traducción de los textos" data-quien="VC">
+        </li>
+    </ul>
+
+    <noscript>
+        <p class="sin-js">Sin JavaScript se ve la versión en español y los correos aparecen escritos con [arroba].</p>
+    </noscript>
 </body>
 
 </html>
