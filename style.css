@@ -30,6 +30,9 @@
     --gris: oklch(0.5 0.02 258);
     --gris-fondo: oklch(0.95 0.008 258);
     --gris-fondo-2: oklch(0.92 0.012 258);
+    /* Aviso de borrador: un rojo apagado para «ahora» y una franja gris azulada para «más adelante». */
+    --borrador: oklch(0.47 0.1 27);
+    --borrador-luego: oklch(0.4 0.035 258);
 
     /* Tipografía */
     --fuente: "Archivo", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
@@ -344,23 +347,17 @@ body [lang="tob"]:not(button) {
 /* ---------- Aviso de borrador ---------- */
 
 .borrador {
-    background: var(--rojo);
+    background: var(--borrador);
     color: var(--sobre-azul);
     font-size: var(--t-sm);
 }
 
-.borrador details {
+.borrador-interior {
     width: min(100% - 2 * var(--margen), var(--ancho));
     margin-inline: auto;
 }
 
 .borrador summary {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 0.25rem 0.75rem;
-    min-height: 2.75rem;
-    padding-block: 0.4rem;
     cursor: pointer;
     list-style: none;
 }
@@ -369,14 +366,23 @@ body [lang="tob"]:not(button) {
     display: none;
 }
 
-.borrador summary::after {
+.borrador-resumen {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.25rem 0.75rem;
+    min-height: 2.75rem;
+    padding-block: 0.4rem;
+}
+
+.borrador-resumen::after {
     content: "Ver la lista";
     text-decoration: underline;
     text-underline-offset: 0.2em;
     font-weight: 600;
 }
 
-.borrador details[open] summary::after {
+.borrador details[open] .borrador-resumen::after {
     content: "Ocultar la lista";
 }
 
@@ -385,7 +391,11 @@ body [lang="tob"]:not(button) {
 }
 
 .borrador-grupo {
-    padding: 0.5rem 0 1.25rem;
+    padding: 0.75rem 0 1.25rem;
+}
+
+.borrador-grupo-luego {
+    background: var(--borrador-luego);
 }
 
 .borrador-titulo {

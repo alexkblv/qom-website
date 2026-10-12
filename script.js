@@ -342,10 +342,13 @@
         return li;
     }
 
-    // Una lista numerada con título. La numeración sigue de una lista a la otra.
-    function grupoPendientes(titulo, items, desde) {
-        var grupo = document.createElement("div");
-        grupo.className = "borrador-grupo";
+    // Una lista numerada con título, en una franja de ancho completo.
+    // La numeración sigue de una lista a la otra.
+    function grupoPendientes(clave, titulo, items, desde) {
+        var grupo = document.createElement("section");
+        grupo.className = "borrador-grupo borrador-grupo-" + clave;
+        var interior = document.createElement("div");
+        interior.className = "borrador-interior";
         var encabezado = document.createElement("h2");
         encabezado.className = "borrador-titulo";
         encabezado.textContent = titulo;
@@ -353,8 +356,9 @@
         lista.className = "borrador-lista";
         lista.style.counterReset = "pendiente " + (desde - 1);
         items.forEach(function (li) { lista.appendChild(li); });
-        grupo.appendChild(encabezado);
-        grupo.appendChild(lista);
+        interior.appendChild(encabezado);
+        interior.appendChild(lista);
+        grupo.appendChild(interior);
         return grupo;
     }
 
@@ -391,18 +395,12 @@
 
         var detalles = document.createElement("details");
         var resumen = document.createElement("summary");
-        resumen.innerHTML = "<span>Borrador para revisión: <strong>" + ahora.length +
-            " pendientes</strong> para ahora y <strong>" + luego.length +
-            "</strong> para más adelante, marcados en la página.</span>";
+        resumen.innerHTML = '<span class="borrador-interior borrador-resumen"><span>Borrador para revisión: ' +
+            "<strong>" + ahora.length + " pendientes</strong> para ahora y <strong>" + luego.length +
+            "</strong> para más adelante, marcados en la página.</span></span>";
         detalles.appendChild(resumen);
-        if (ahora.length) detalles.appendChild(grupoPendientes("Para completar ahora", ahora, 1));
-        if (luego.length) {
-            detalles.appendChild(grupoPendientes(
-                "Para más adelante, cuando existan los datos, las publicaciones y las cuentas",
-                luego,
-                ahora.length + 1
-            ));
-        }
+        if (ahora.length) detalles.appendChild(grupoPendientes("ahora", "Para completar ahora", ahora, 1));
+        if (luego.length) detalles.appendChild(grupoPendientes("luego", "Para más adelante", luego, ahora.length + 1));
         contenedor.appendChild(detalles);
         contenedor.hidden = false;
     }
