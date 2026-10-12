@@ -54,7 +54,7 @@ window.TEXTOS = {
         qom: ""
     },
     "comunidad.p3": {
-        en: "The results of this journey include publications and resources created together with the community, among them the book <a href=\"https://www.educ.ar/recursos/91479/taller-de-lengua-y-cultura-toba-conversaciones-con-valentin-moreno\"><cite lang=\"tob\">Lo’onatacpi na qom Derquil’ecpi</cite></a>, which gathers part of the work from the early stages. The work has also accompanied new forms of cultural expression and transmission, such as <a href=\"https://www.instagram.com/eskinaqom/\">Qom rap</a>, through ties with young musicians who reclaim their language and culture. This shared history continues in the current project, which recognizes its Qom collaborators as essential participants in producing, translating and reviewing the materials.",
+        en: "The results of this journey include publications and resources created together with the community, among them the book <a href=\"https://chacoindigena.net/wp-content/uploads/2020/07/Lo%E2%80%99onatacpi-na-qom-Derqui-l%E2%80%99ecpi-%E2%80%93-Materiales-didacticos-del-taller-de-lengua-y-cultura-toba-en-Derqui-BsAs.pdf\"><cite lang=\"tob\">Lo’onatacpi na qom Derquil’ecpi</cite></a>, which gathers part of the work from the early stages. The work has also accompanied new forms of cultural expression and transmission, such as <a href=\"https://www.instagram.com/eskinaqom/\">Qom rap</a>, through ties with young musicians who reclaim their language and culture. This shared history continues in the current project, which recognizes its Qom collaborators as essential participants in producing, translating and reviewing the materials.",
         qom: ""
     },
 
