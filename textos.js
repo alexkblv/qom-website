@@ -45,6 +45,30 @@ window.TEXTOS = {
     "proyecto.mas-lengua": { en: "More about the Qom language", qom: "" },
     "proyecto.mas-tecnologia": { en: "How does technology help languages?", qom: "" },
     "comunidad.titulo": { en: "With the Qom community of Derqui", qom: "" },
+    "comunidad.p1": {
+        en: "Our work with the Qom neighborhood of <span lang=\"tob\">Daviaxaiqui</span>, also known as the “barrio toba”, in Presidente Derqui (Pilar district, Buenos Aires province), began in 2001, long before the current project. About 50 kilometers from the city of Buenos Aires, the neighborhood was formed by Qom families who migrated from the Chaco region, with which they keep close ties today. Since then we have carried out <a href=\"https://revistascientificas.filo.uba.ar/index.php/sys/article/view/5892/5241\">collaborative projects</a> of language documentation and revitalization, involving researchers, students and community members.",
+        qom: ""
+    },
+    "comunidad.p2": {
+        en: "The workshops for studying and reflecting on the Qom language and culture began in 2002. They brought together different generations (elders, adults, young people and children) with researchers and students from the University of Buenos Aires, coordinated by the linguist Cristina Messineo and the anthropologist Ana Dell’Arciprete. Over the years, this joint work produced outreach and educational materials, documented stories and other forms of Qom verbal art, and trained community members to take part in researching and teaching their language and culture. (In recognition of this collaborative work, the team received the 2003 <a href=\"https://www.ssila.org/es/premio-ken-hale\">Ken Hale Prize</a> from the Society for the Study of the Indigenous Languages of the Americas.)",
+        qom: ""
+    },
+    "comunidad.p3": {
+        en: "The results of this journey include publications and resources created together with the community, among them the book <cite lang=\"tob\">Lo’onatacpi na qom Derquil’ecpi</cite>, which gathers part of the work from the early stages. The work has also accompanied new forms of cultural expression and transmission, such as <a href=\"https://www.instagram.com/eskinaqom/\">Qom rap</a>, through ties with young musicians who reclaim their language and culture. This shared history continues in the current project, which recognizes its Qom collaborators as essential participants in producing, translating and reviewing the materials.",
+        qom: ""
+    },
+
+    "lengua.titulo": { en: "The Qom language", qom: "" },
+    "lengua.p1": {
+        en: "<span lang=\"tob\">Qom l’aqtaqa</span> (also known as Toba) is an Indigenous language of the Guaycuruan family, related to Moqoit (Mocoví), Pilagá, Qom lé’k and Kadiwéu. Its ancestral territory spans the Gran Chaco, with communities in the provinces of Chaco, Formosa and Salta. Since the mid-20th century, migration has also brought the language to cities in Santa Fe and Buenos Aires. Far from being a single uniform language, Qom has a rich variety of dialects arranged as a continuum, where mutual understanding depends on how close the communities are to each other geographically.",
+        qom: ""
+    },
+    "lengua.p2": {
+        en: "Although Qom has been an official language of Chaco province since 2010 (alongside Spanish, Moqoit and Wichí), its current sociolinguistic situation is varied and changes across regions, generations and settings. In rural areas the language remains strong, but in cities it faces a critical situation because transmission between generations has been interrupted: Spanish predominates among children and young people, whose competence is often limited to receptive bilingualism (they understand some phrases but do not speak the language fluently). In this scenario, the vitality of Qom in the city finds refuge in religious spaces, artistic expression, and community and academic projects. Despite these challenges, the language remains a key pillar of Qom identity and continues to make its way into community life, the media and digital environments.",
+        qom: ""
+    },
+    "lengua.enlaces": { en: "Links of interest", qom: "" },
+    "lengua.mas-enlaces": { en: "More links", qom: "" },
 
     "recursos.titulo": { en: "Resources", qom: "" },
     "texto.tipo": { en: "Text corpus", qom: "" },
@@ -89,6 +113,18 @@ window.TEXTOS = {
         qom: ""
     },
     "ejemplos.titulo": { en: "Examples", qom: "" },
+    "ejemplos.fuente-arte-verbal": {
+        en: "<cite>Arte verbal qom. Consejos, rogativas y relatos</cite>, Messineo and Maidana, 2014, p. 81.",
+        qom: ""
+    },
+    "ejemplos.fuente-principito": {
+        en: "<cite>El Principito</cite> (The Little Prince), Antoine de Saint-Exupéry.",
+        qom: ""
+    },
+    "ejemplos.fuente-salud": {
+        en: "“Conversaciones sobre la salud”, <cite>Educación Sanitaria Intercultural</cite> / <cite lang=\"tob\">Paxaguenaxac da qantela’a da chalataxac ỹalexa’t da nataxac</cite>, Martínez et al., 2013, p. 32.",
+        qom: ""
+    },
 
     "uso.titulo": { en: "Use", qom: "" },
     "uso.texto": {
@@ -100,7 +136,7 @@ window.TEXTOS = {
     "uso.visitas": { en: "Visits to this site", qom: "" },
 
     "equipo.titulo": { en: "Team", qom: "" },
-    "equipo.miembros": { en: "Full members", qom: "" },
+    "equipo.miembros": { en: "Project members", qom: "" },
     "equipo.colaboradores": { en: "Collaborators", qom: "" },
     "equipo.hablantes": { en: "Speakers and translators", qom: "" },
     "equipo.instituciones": { en: "Institutions", qom: "" },
@@ -111,6 +147,19 @@ window.TEXTOS = {
     "rol.macarena": { en: "Corpus building and translator evaluation", qom: "" },
     "rol.pablo": { en: "Corpus building and tool development", qom: "" },
     "rol.victoria": { en: "Anthropological advice", qom: "" },
+    "rol.coordinacion-transcripcion-voz": {
+        en: "Recording coordination · Transcription and translation · Voice",
+        qom: ""
+    },
+    "rol.coordinacion-transcripcion": { en: "Recording coordination · Transcription and translation", qom: "" },
+    "rol.coordinacion-voz": { en: "Recording coordination · Voice", qom: "" },
+    "rol.voz": { en: "Voice", qom: "" },
+    "equipo.fallecido": { en: "(deceased)", qom: "" },
+    "equipo.otras-voces": { en: "Fifteen more people also took part with their voices.", qom: "" },
+    "equipo.consentimiento": {
+        en: "Everyone who contributed voices, transcriptions and translations knows the purpose and the limitations of the project and agreed to take part. All the people named here were also consulted about publishing their names.",
+        qom: ""
+    },
     "inst.icc": { en: "Institute of Computer Science Research (UBA-CONICET)", qom: "" },
     "inst.il": { en: "Institute of Linguistics, Faculty of Philosophy and Letters (UBA)", qom: "" },
     "inst.conicet": { en: "National Scientific and Technical Research Council", qom: "" },

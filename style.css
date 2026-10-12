@@ -720,6 +720,7 @@ body [lang="tob"]:not(button) {
     gap: 0.75rem;
 }
 
+.lengua,
 .comunidad {
     margin-top: clamp(1.5rem, 1rem + 2vw, 3rem);
     display: grid;
@@ -728,8 +729,21 @@ body [lang="tob"]:not(button) {
     align-items: start;
 }
 
-.comunidad .pendiente {
+.lengua-texto,
+.comunidad-texto {
+    display: grid;
+    gap: 1rem;
     max-width: 62ch;
+    justify-items: start;
+}
+
+.lengua-texto h4 {
+    margin-top: 0.5rem;
+    font-size: var(--t-sm);
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--tinta-2);
 }
 
 /* ---------- Recursos ---------- */
@@ -1126,6 +1140,16 @@ body [lang="tob"]:not(button) {
     margin-top: 0.2rem;
 }
 
+.equipo-nota {
+    margin-top: 1.35rem;
+    font-size: var(--t-sm);
+    color: var(--tinta-2);
+}
+
+.equipo-grupo .pendiente-en-linea {
+    margin-top: 0.75rem;
+}
+
 .correo {
     display: inline-block;
     margin-top: 0.2rem;
@@ -1400,6 +1424,7 @@ body [lang="tob"]:not(button) {
 
     .recurso,
     .publicaciones,
+    .lengua,
     .comunidad,
     .traductor-interior,
     .uso-interior,
