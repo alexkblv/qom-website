@@ -23,11 +23,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400;0,500;1,400;1,500&family=Archivo:wdth,wght@100..125,400..800&display=swap">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=2">
 
-    <script src="config.js" defer></script>
-    <script src="textos.js" defer></script>
-    <script src="script.js" defer></script>
+    <script src="config.js?v=2" defer></script>
+    <script src="textos.js?v=2" defer></script>
+    <script src="script.js?v=2" defer></script>
 </head>
 
 <body>
@@ -105,7 +105,7 @@
                         <!-- PENDIENTE: cuando exista el registro en Zenodo, cambiar href="#texto" por su URL,
                              agregar data-evento="download_dataset" y quitar la clase "pendiente" y los atributos data-pendiente. -->
                         <a class="boton pendiente pendiente-boton" href="#texto"
-                            data-pendiente="Botón «Descargar los datos»: enlazar al registro de Zenodo"
+                            data-pendiente="Botón «Descargar los datos»: enlazar al registro de Zenodo" data-cuando="luego"
                             data-quien="AK, VC">
                             <span data-t="accion.datos">Descargar los datos</span>
                         </a>
@@ -224,18 +224,15 @@
                                 href="https://www.ssila.org/es/premio-ken-hale">Premio Ken Hale</a>, otorgado por la
                             Society for the Study of the Indigenous Languages of the Americas.)</p>
                         <p data-t="comunidad.p3">Entre los resultados de este recorrido se encuentran las publicaciones
-                            y los recursos elaborados en colaboración con la comunidad, incluido el libro <cite
-                                lang="tob">Lo’onatacpi na qom Derquil’ecpi</cite>, que reúne parte del trabajo
+                            y los recursos elaborados en colaboración con la comunidad, incluido el libro <a
+                                href="https://www.educ.ar/recursos/91479/taller-de-lengua-y-cultura-toba-conversaciones-con-valentin-moreno"><cite
+                                    lang="tob">Lo’onatacpi na qom Derquil’ecpi</cite></a>, que reúne parte del trabajo
                             realizado en las primeras etapas. El trabajo también acompañó nuevas formas de expresión y
                             transmisión cultural, como el <a href="https://www.instagram.com/eskinaqom/">rap qom</a>, a
                             través del vínculo con jóvenes músicos que reivindican su lengua y su cultura. Esta
                             trayectoria compartida continúa en el proyecto actual, que reconoce a las y los
                             colaboradores qom como participantes fundamentales en la producción, traducción y revisión
                             de los materiales.</p>
-                        <p class="pendiente pendiente-en-linea"
-                            data-pendiente="Comunidad: revisar el texto (¿recortar?) y agregar el enlace al libro «Lo’onatacpi na qom Derquil’ecpi»"
-                            data-quien="PC, VC">Revisar el texto y enlazar el libro <span
-                                class="pendiente-etiqueta">pendiente</span></p>
                     </div>
                 </div>
             </div>
@@ -270,7 +267,7 @@
                         <ul class="enlaces">
                             <li>
                                 <span class="pendiente pendiente-en-linea"
-                                    data-pendiente="Enlace a los datos de QomL’aqtaqa en Zenodo (y su DOI)"
+                                    data-pendiente="Enlace a los datos de QomL’aqtaqa en Zenodo (y su DOI)" data-cuando="luego"
                                     data-quien="AK, VC"><span data-t="texto.datos">Datos en Zenodo</span>
                                     <span class="pendiente-etiqueta">pendiente</span></span>
                             </li>
@@ -298,7 +295,7 @@
                             lingüística y el estudio de distintos aspectos del lenguaje hablado. Por ejemplo, este tipo
                             de tecnología podría permitir, en el futuro, que una persona hable en qom y que sus palabras
                             aparezcan escritas automáticamente en una computadora o un teléfono.</p>
-                        <div class="pendiente" data-pendiente="QomSpeech: cifras (horas, hablantes) y enlace a Zenodo"
+                        <div class="pendiente" data-pendiente="QomSpeech: cifras (horas, hablantes) y enlace a Zenodo" data-cuando="luego"
                             data-quien="BT, VC">
                             <p class="pendiente-etiqueta">Pendiente · BT, VC</p>
                             <p>Cuando se publique: cuántas horas y cuántos hablantes, en qué formato, y el enlace al
@@ -321,7 +318,7 @@
                         <p data-t="modelos.texto">Los modelos están en Hugging Face y por ahora son privados. Se pueden
                             probar con el traductor en línea.</p>
                         <span class="pendiente pendiente-en-linea"
-                            data-pendiente="Modelos: ¿se publican en Hugging Face? Si sí, poner el enlace"
+                            data-pendiente="Modelos: ¿se publican en Hugging Face? Si sí, poner el enlace" data-cuando="luego"
                             data-quien="VC, AK">Hugging Face <span class="pendiente-etiqueta">pendiente</span></span>
                     </div>
                 </div>
@@ -344,7 +341,7 @@
                         </li>
                         <li class="referencia">
                             <div class="pendiente"
-                                data-pendiente="Publicaciones: otras presentaciones (pósters de la Escuela de PLN, resumen para JAIIO)"
+                                data-pendiente="Publicaciones: otras presentaciones (pósters de la Escuela de PLN, resumen para JAIIO)" data-cuando="luego"
                                 data-quien="VC">
                                 <p class="pendiente-etiqueta">Pendiente · VC</p>
                                 <p>Otras publicaciones y presentaciones: los pósters de la Escuela de PLN y el resumen
@@ -603,7 +600,7 @@
                         <div>
                             <dt data-t="citar.doi-datos">DOI de los datos</dt>
                             <dd><span class="pendiente pendiente-en-linea"
-                                    data-pendiente="DOI de los datos (Zenodo), para citar el corpus"
+                                    data-pendiente="DOI de los datos (Zenodo), para citar el corpus" data-cuando="luego"
                                     data-quien="AK, VC">Zenodo <span class="pendiente-etiqueta">pendiente</span></span>
                             </dd>
                         </div>
@@ -697,7 +694,7 @@
                 <div>
                     <dt data-t="pie.licencia">Licencia</dt>
                     <dd><span class="pendiente pendiente-en-linea"
-                            data-pendiente="Licencia de los datos y de los textos del sitio" data-quien="VC, PC"><span
+                            data-pendiente="Licencia de los datos y de los textos del sitio" data-cuando="luego" data-quien="VC, PC"><span
                                 data-t="pie.licencia-pendiente">Por definir</span> <span
                                 class="pendiente-etiqueta">pendiente</span></span></dd>
                 </div>
@@ -712,7 +709,7 @@
         <li class="pendiente" data-pendiente="Nombre del sitio: confirmar «Tecnologías de Lenguaje para Qom»"
             data-quien="VC"></li>
         <li class="pendiente"
-            data-pendiente="Estadísticas del sitio: abrir la cuenta (Plausible u otra) y completar config.js"
+            data-pendiente="Estadísticas del sitio: abrir la cuenta (Plausible u otra) y completar config.js" data-cuando="luego"
             data-quien="VC, AK"></li>
         <li class="pendiente" data-pendiente="Dominio propio (lenguaqom.com.ar): configurarlo en GitHub Pages"
             data-quien="PC"></li>

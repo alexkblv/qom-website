@@ -26,6 +26,10 @@
     --rojo: oklch(0.52 0.19 27);
     --rojo-fondo: oklch(0.958 0.026 27);
     --rojo-fondo-2: oklch(0.93 0.045 27);
+    /* Pendientes para más adelante: en gris, para que no compitan con los de ahora. */
+    --gris: oklch(0.5 0.02 258);
+    --gris-fondo: oklch(0.95 0.008 258);
+    --gris-fondo-2: oklch(0.92 0.012 258);
 
     /* Tipografía */
     --fuente: "Archivo", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
@@ -271,6 +275,23 @@ body [lang="tob"]:not(button) {
     margin-top: 0.5rem;
 }
 
+.pendiente[data-cuando="luego"] {
+    border-color: var(--gris);
+    background: repeating-linear-gradient(-45deg, var(--gris-fondo) 0 12px, var(--gris-fondo-2) 12px 24px);
+}
+
+.pendiente[data-cuando="luego"] .pendiente-etiqueta,
+.boton.pendiente-boton[data-cuando="luego"],
+.boton.pendiente-boton[data-cuando="luego"]:hover {
+    color: var(--gris);
+}
+
+.boton.pendiente-boton[data-cuando="luego"],
+.boton.pendiente-boton[data-cuando="luego"]:hover {
+    border-color: var(--gris);
+    background: var(--gris-fondo);
+}
+
 .pendiente-etiqueta {
     display: inline-block;
     font-family: var(--fuente);
@@ -363,12 +384,26 @@ body [lang="tob"]:not(button) {
     outline-color: var(--sobre-azul);
 }
 
+.borrador-grupo {
+    padding: 0.5rem 0 1.25rem;
+}
+
+.borrador-titulo {
+    font-size: var(--t-xs);
+    font-weight: 700;
+    font-stretch: 100%;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--sobre-azul);
+    opacity: 0.85;
+    margin-bottom: 0.5rem;
+}
+
 .borrador-lista {
     counter-reset: pendiente;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr));
     gap: 0.4rem 2rem;
-    padding: 0.5rem 0 1.25rem;
 }
 
 .borrador-lista li {
@@ -732,7 +767,7 @@ body [lang="tob"]:not(button) {
 .lengua-texto,
 .comunidad-texto {
     display: grid;
-    gap: 1rem;
+    gap: 1.25rem;
     max-width: 62ch;
     justify-items: start;
 }

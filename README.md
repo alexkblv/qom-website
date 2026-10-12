@@ -16,13 +16,17 @@ JavaScript, sin herramientas de compilación) publicada con GitHub Pages.
 | `assets/` | Logos, ícono de la pestaña e imagen para compartir el enlace |
 
 Todo se puede editar desde la web de GitHub: abrir el archivo, tocar el lápiz, cambiar y
-guardar (“Commit changes”). El sitio se actualiza en uno o dos minutos.
+guardar (“Commit changes”). El sitio se actualiza en uno o dos minutos. Si después de cambiar
+`style.css`, `textos.js`, `script.js` o `config.js` el navegador sigue mostrando la versión
+vieja, subir el número `?v=` con el que `index.html` los carga (por ejemplo, de `?v=2` a `?v=3`).
 
 ## Pendientes
 
-Lo que todavía falta está marcado en la página con recuadros rojos, y arriba aparece un aviso
-rojo con la lista completa y quién completa cada cosa. Cuando no quede ningún pendiente,
-el aviso desaparece solo.
+Lo que todavía falta está marcado en la página con recuadros, y arriba aparece un aviso rojo
+con la lista completa y quién completa cada cosa. La lista tiene dos partes: lo que se puede
+completar ahora (recuadros rojos) y lo que espera a que existan los datos, las publicaciones o
+las cuentas (recuadros grises, marcados con `data-cuando="luego"`). Cuando no quede ningún
+pendiente, el aviso desaparece solo.
 
 Para completar uno, buscar en `index.html` el bloque con `class="pendiente"` y reemplazarlo
 por el contenido final. Por ejemplo, el botón «Descargar los datos»: cuando exista el

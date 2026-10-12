@@ -264,6 +264,7 @@
             } else {
                 var marca = document.createElement("span");
                 marca.className = "pendiente pendiente-en-linea";
+                marca.setAttribute("data-cuando", "luego");
                 marca.innerHTML = 'Plausible <span class="pendiente-etiqueta">pendiente</span>';
                 panel.appendChild(marca);
             }
@@ -341,43 +342,67 @@
         return li;
     }
 
+    // Una lista numerada con título. La numeración sigue de una lista a la otra.
+    function grupoPendientes(titulo, items, desde) {
+        var grupo = document.createElement("div");
+        grupo.className = "borrador-grupo";
+        var encabezado = document.createElement("h2");
+        encabezado.className = "borrador-titulo";
+        encabezado.textContent = titulo;
+        var lista = document.createElement("ol");
+        lista.className = "borrador-lista";
+        lista.style.counterReset = "pendiente " + (desde - 1);
+        items.forEach(function (li) { lista.appendChild(li); });
+        grupo.appendChild(encabezado);
+        grupo.appendChild(lista);
+        return grupo;
+    }
+
     function armarPendientes() {
         var contenedor = document.getElementById("borrador");
         if (!contenedor) return;
 
-        var lista = document.createElement("ol");
-        lista.className = "borrador-lista";
-        var total = 0;
+        // Dos listas: lo que se puede completar ahora y lo que espera a que existan
+        // los datos, las publicaciones o las cuentas (data-cuando="luego").
+        var ahora = [];
+        var luego = [];
 
         document.querySelectorAll(".pendiente[data-pendiente]").forEach(function (el, i) {
             var enPagina = !el.closest(".pendientes-generales");
             if (enPagina && !el.id) el.id = "pendiente-" + (i + 1);
-            lista.appendChild(itemPendiente(
+            var item = itemPendiente(
                 el.getAttribute("data-pendiente"),
                 el.getAttribute("data-quien"),
                 enPagina ? el.id : null
-            ));
-            total++;
+            );
+            (el.getAttribute("data-cuando") === "luego" ? luego : ahora).push(item);
         });
 
         var faltanQom = contarFaltantesQom();
         if (faltanQom) {
-            lista.appendChild(itemPendiente(
+            ahora.push(itemPendiente(
                 "Versión en qom: faltan " + faltanQom + " textos (se completan en textos.js)",
                 "PC, TT, VC",
                 null
             ));
-            total++;
         }
 
-        if (!total) return;
+        if (!ahora.length && !luego.length) return;
 
         var detalles = document.createElement("details");
         var resumen = document.createElement("summary");
-        resumen.innerHTML = "<span>Borrador para revisión: <strong>" + total +
-            " pendientes</strong>, marcados en rojo en la página.</span>";
+        resumen.innerHTML = "<span>Borrador para revisión: <strong>" + ahora.length +
+            " pendientes</strong> para ahora y <strong>" + luego.length +
+            "</strong> para más adelante, marcados en la página.</span>";
         detalles.appendChild(resumen);
-        detalles.appendChild(lista);
+        if (ahora.length) detalles.appendChild(grupoPendientes("Para completar ahora", ahora, 1));
+        if (luego.length) {
+            detalles.appendChild(grupoPendientes(
+                "Para más adelante, cuando existan los datos, las publicaciones y las cuentas",
+                luego,
+                ahora.length + 1
+            ));
+        }
         contenedor.appendChild(detalles);
         contenedor.hidden = false;
     }
