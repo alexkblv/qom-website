@@ -181,8 +181,6 @@ window.TEXTOS = {
     },
 
     "pie.contacto": { en: "Contact", qom: "" },
-    "pie.sitio": { en: "This site", qom: "" },
-    "pie.sitio-enlace": { en: "Code and how to update it", qom: "" },
     "pie.licencia": { en: "License", qom: "" },
     "pie.licencia-pendiente": { en: "To be decided", qom: "" },
     "pie.descargo": {
